@@ -1,6 +1,8 @@
 package com.example.kadir.notlar;
 
 import android.app.DialogFragment;
+import android.content.ContentValues;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,7 +15,11 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.kadir.notlar.Database.NotlarProvider;
+
 public class FragmentDialogYeniNot extends android.support.v4.app.DialogFragment {
+
+    static final Uri CONTENT_URI = NotlarProvider.CONTENT_URI;
 
     private EditText etNotIcerik;
     private Button btnKaydet;
@@ -47,7 +53,12 @@ public class FragmentDialogYeniNot extends android.support.v4.app.DialogFragment
         btnKaydet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Not Eklendi", Toast.LENGTH_SHORT).show();
+
+                ContentValues eklenecek = new ContentValues();
+                eklenecek.put("notIcerik",etNotIcerik.getText().toString());
+
+                Uri uri = getActivity().getContentResolver().insert(CONTENT_URI,eklenecek);
+                Toast.makeText(getContext(), "Not Eklendi : "+uri, Toast.LENGTH_SHORT).show();
             }
         });
 

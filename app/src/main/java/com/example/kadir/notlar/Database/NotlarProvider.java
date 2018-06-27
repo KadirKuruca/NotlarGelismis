@@ -1,8 +1,10 @@
 package com.example.kadir.notlar.Database;
 
 import android.content.ContentProvider;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -30,6 +32,22 @@ public class NotlarProvider extends ContentProvider {
 
     //Database ve Tablolar ile ilgili kısım
 
+    //ContentProvider
+
+    static final String CONTENT_AUTHORITY = "com.example.kadir.notlar.Database.notlarprovider";
+    static final String PATH_NOTLAR = "notlar";
+
+    static final Uri BASE_CONTENT_URI = Uri.parse("content://"+CONTENT_AUTHORITY);
+    public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI,PATH_NOTLAR);
+
+    static final UriMatcher matcher;
+
+    static{
+        matcher = new UriMatcher(UriMatcher.NO_MATCH);
+        matcher.addURI(CONTENT_AUTHORITY,PATH_NOTLAR,1);
+    }
+
+    //ContentProvider
 
     @Override
     public boolean onCreate() {
@@ -54,19 +72,40 @@ public class NotlarProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
+
+        switch (matcher.match(uri)){
+
+            case 1:
+                long eklenenSatirId = db.insert(NOTLAR_TABLE_NAME,null,values);
+                if(eklenenSatirId > 0)
+                {
+                    Uri _uri = ContentUris.withAppendedId(CONTENT_URI,eklenenSatirId);
+                    return _uri;
+                }
+        }
         return null;
     }
 
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
+
+        switch (matcher.match(uri)){
+
+            case 1:
+                String where =
+                db.delete(NOTLAR_TABLE_NAME,)
+        }
+
         return 0;
     }
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
+
         return 0;
     }
 
+    //DatabaseHelper
     private class DatabaseHelper extends SQLiteOpenHelper {
 
         public DatabaseHelper(Context context) {
@@ -84,4 +123,5 @@ public class NotlarProvider extends ContentProvider {
             onCreate(db);
         }
     }
+    //DatabaseHelper
 }

@@ -17,6 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".SplashActivity"></activity>
+        
+        <provider
+            android:authorities="com.example.kadir.notlar.Database.notlarprovider"
+            android:name=".Database.NotlarProvider"> </provider>
     </application>
 
 </manifest>
