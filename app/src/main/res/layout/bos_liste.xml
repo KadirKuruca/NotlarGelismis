@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="@dimen/logo_genislik"
+        android:layout_height="@dimen/logo_yukseklik"
+        android:src="@drawable/logo3"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="80dp"/>
+
+    <Button
+        android:id="@+id/btnNotEkle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgLogo"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="10dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:paddingTop="10dp"
+        android:text="@string/btn_not_ekle_text"
+        android:background="@drawable/btn_not_ekle_color"
+        android:textAllCaps="false"
+        android:textColor="@color/btn_text_color_degistir"
+        android:textSize="@dimen/btn_ekle_text_size"
+        android:typeface="monospace" />
+
+</RelativeLayout>

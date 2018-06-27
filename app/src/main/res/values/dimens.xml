@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="logo_genislik">192dp</dimen>
+    <dimen name="logo_yukseklik">192dp</dimen>
+    <dimen name="btn_ekle_text_size">28sp</dimen>
+</resources>

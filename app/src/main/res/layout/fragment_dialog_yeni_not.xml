@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvBaslik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Not Ekle"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:fontFamily="monospace" />
+
+    <ImageButton
+        android:id="@+id/btnCancel"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:tint="@color/colorAccent"
+        android:background="@null"
+        android:src="@drawable/ic_action_cancel"
+        android:layout_alignTop="@id/tvBaslik"
+        android:layout_alignBottom="@+id/tvBaslik"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        />
+
+    <EditText
+        android:id="@+id/etNot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvBaslik"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="monospace"
+        android:hint="Not Giriniz"
+        android:maxLines="2"
+        android:padding="16dp"
+        android:textStyle="bold" />
+
+    <DatePicker
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:id="@+id/dpTarih"
+        android:layout_below="@id/etNot"
+        android:layout_margin="16dp">
+    </DatePicker>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Not Ekle"
+        android:id="@+id/btnEkle"
+        android:layout_below="@id/dpTarih"
+        android:background="@drawable/btn_not_ekle_color"
+        android:textColor="@color/btn_text_color_degistir"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:fontFamily="monospace"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_margin="20dp"
+        >
+
+    </Button>
+</RelativeLayout>
