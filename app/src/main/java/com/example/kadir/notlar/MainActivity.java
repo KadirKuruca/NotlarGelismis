@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -15,11 +16,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.kadir.notlar.Database.Notlar;
 import com.example.kadir.notlar.Database.NotlarProvider;
+import com.example.kadir.notlar.adapter.Divider;
 import com.example.kadir.notlar.adapter.NotlarListesiAdapter;
 
 import java.util.ArrayList;
@@ -45,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(mtoolbar);
 
+        recyclerNotlar = findViewById(R.id.recyclerView);
+        recyclerNotlar.addItemDecoration(new Divider(this,LinearLayoutManager.VERTICAL));
+
         btnYeniNot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         mtoolbar = findViewById(R.id.toolbar);
         btnYeniNot = findViewById(R.id.btnNotEkle);
-        recyclerNotlar = findViewById(R.id.recyclerView);
         ivLogo = findViewById(R.id.imgLogo);
     }
 
