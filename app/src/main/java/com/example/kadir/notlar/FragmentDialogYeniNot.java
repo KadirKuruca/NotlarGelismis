@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.Layout;
+import android.util.Xml;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +45,7 @@ public class FragmentDialogYeniNot extends android.support.v4.app.DialogFragment
         btnKaydet = view.findViewById(R.id.btnEkle);
         datePicker = view.findViewById(R.id.dpTarih);
 
+
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +62,8 @@ public class FragmentDialogYeniNot extends android.support.v4.app.DialogFragment
 
                 Uri uri = getActivity().getContentResolver().insert(CONTENT_URI,eklenecek);
                 Toast.makeText(getContext(), "Not Eklendi : "+uri, Toast.LENGTH_SHORT).show();
+
+                ((MainActivity)getActivity()).notGuncelle();
             }
         });
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="22dp">
+
+    <ImageView
+        android:id="@+id/ivNot"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:tint="@color/colorAccent"
+        android:background="@null"
+        android:src="@drawable/ic_assignment"/>
+
+    <TextView
+        android:id="@+id/tek_satir_not"
+        android:layout_width="230dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@id/ivNot"
+        android:fontFamily="monospace"
+        android:text="Deneme"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tek_satir_tarih"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/tek_satir_not"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:text="Tarih"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        />
+
+</LinearLayout>
